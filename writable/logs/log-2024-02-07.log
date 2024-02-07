@@ -1,0 +1,47 @@
+CRITICAL - 2024-02-07 04:45:06 --> Error: Class "App\Models\modelExamen" not found
+in APPPATH\Controllers\controladorExamen.php on line 9.
+ 1 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\controladorExamen->index()
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\controladorExamen))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-02-07 05:05:34 --> mysqli_sql_exception: Table 'bdd_pymes.tbl_producto' doesn't exist in C:\xampp\htdocs\examenFinal\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\examenFinal\system\Database\MySQLi\Connection.php(306): mysqli->query('UPDATE tbl_prod...', 0)
+#1 C:\xampp\htdocs\examenFinal\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE tbl_prod...')
+#2 C:\xampp\htdocs\examenFinal\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE tbl_prod...')
+#3 C:\xampp\htdocs\examenFinal\app\Models\modeloExamen.php(30): CodeIgniter\Database\BaseConnection->query('UPDATE tbl_prod...')
+#4 C:\xampp\htdocs\examenFinal\app\Controllers\controladorExamen.php(30): App\Models\modeloExamen->actualizarDatos('1', '2')
+#5 C:\xampp\htdocs\examenFinal\system\CodeIgniter.php(941): App\Controllers\controladorExamen->actualizarDatos()
+#6 C:\xampp\htdocs\examenFinal\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\controladorExamen))
+#7 C:\xampp\htdocs\examenFinal\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\examenFinal\index.php(79): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-02-07 05:05:34 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'bdd_pymes.tbl_producto' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 APPPATH\Models\modeloExamen.php(30): CodeIgniter\Database\BaseConnection->query('UPDATE tbl_producto SET PROV_ID = \'2\' WHERE PROD_ID = 1')
+ 2 APPPATH\Controllers\controladorExamen.php(30): App\Models\modeloExamen->actualizarDatos('1', '2')
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\controladorExamen->actualizarDatos()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\controladorExamen))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-02-07 05:05:34 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'bdd_pymes.tbl_producto' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE tbl_producto SET PROV_ID = \'2\' WHERE PROD_ID = 1')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE tbl_producto SET PROV_ID = \'2\' WHERE PROD_ID = 1')
+ 3 APPPATH\Models\modeloExamen.php(30): CodeIgniter\Database\BaseConnection->query('UPDATE tbl_producto SET PROV_ID = \'2\' WHERE PROD_ID = 1')
+ 4 APPPATH\Controllers\controladorExamen.php(30): App\Models\modeloExamen->actualizarDatos('1', '2')
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\controladorExamen->actualizarDatos()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\controladorExamen))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-02-07 05:05:34 --> [Caused by] mysqli_sql_exception: Table 'bdd_pymes.tbl_producto' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('UPDATE tbl_producto SET PROV_ID = \'2\' WHERE PROD_ID = 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE tbl_producto SET PROV_ID = \'2\' WHERE PROD_ID = 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE tbl_producto SET PROV_ID = \'2\' WHERE PROD_ID = 1')
+ 4 APPPATH\Models\modeloExamen.php(30): CodeIgniter\Database\BaseConnection->query('UPDATE tbl_producto SET PROV_ID = \'2\' WHERE PROD_ID = 1')
+ 5 APPPATH\Controllers\controladorExamen.php(30): App\Models\modeloExamen->actualizarDatos('1', '2')
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\controladorExamen->actualizarDatos()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\controladorExamen))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
