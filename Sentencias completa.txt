@@ -1,0 +1,40 @@
+Listado de vendedores con el valor vendido:
+SELECT tbl_empleados.EMP_NOMBRE, SUM(tbl_ventas.VENT_PRECIO_VENDIDO) AS total_ventas FROM tbl_ventas INNER JOIN tbl_empleados WHERE tbl_ventas.EMP_ID = tbl_empleados.EMP_ID GROUP BY tbl_ventas.EMP_ID;
+
+
+Listado de los 5 mejores vendedores, tomar en cuenta cantidad de ventas
+SELECT tbl_empleados.EMP_NOMBRE, COUNT(tbl_ventas.EMP_ID) AS TOTAL_VENDIDOS FROM tbl_ventas INNER JOIN tbl_empleados WHERE tbl_ventas.EMP_ID = tbl_empleados.EMP_ID GROUP BY tbl_ventas.EMP_ID ORDER BY TOTAL_VENDIDOS DESC LIMIT 5;
+
+
+Listado de los 5 mejores vendedores, tomar en cuenta  el valor total vendido por vendedo
+SELECT tbl_empleados.EMP_NOMBRE, SUM(tbl_ventas.VENT_PRECIO_VENDIDO) AS total_ventas FROM tbl_ventas INNER JOIN tbl_empleados WHERE tbl_ventas.EMP_ID = tbl_empleados.EMP_ID GROUP BY tbl_ventas.EMP_ID ORDER BY total_ventas DESC LIMIT 5;
+
+
+Listado productos con su categoría y proveedor:
+SELECT PR.PROD_ID, P.PROV_NOMBRE, C.CAT_NOMBRE, PR.PROD_NOMBRE FROM tbl_proveedor P JOIN tbl_productos PR ON P.PROV_ID = PR.PROV_ID
+JOIN tbl_categorias C ON PR.CAT_ID = C.CAT_ID";
+
+Listado de ventas, promedio y cantidad vendida de las Categorias
+SELECT
+c.CAT_NOMBRE,
+SUM(v.VENT_PRECIO_VENDIDO) as Total_Ventas,
+AVG(v.VENT_PRECIO_VENDIDO) as Precio_Promedio,
+COUNT(v.PROD_ID) as Cantidad_vendido
+FROM tbl_ventas as v
+INNER JOIN tbl_productos as p on v.PROD_ID = p.PROD_ID
+INNER JOIN tbl_categorias as c on p.CAT_ID = c.CAT_ID
+GROUP BY c.CAT_NOMBRE
+ORDER BY Total_Ventas DESC;
+
+
+SELECT
+E.EMP_NOMBRE,
+E.EMP_APELLIDO,
+COUNT(DISTINCT(V.PROD_ID)) AS CantidadProductosVentas,
+SUM(V.VENT_PRECIO_VENDIDO) AS TotalVentas
+FROM
+tbl_ventas AS V
+INNER JOIN tbl_empleados AS E ON E.EMP_ID = V.EMP_ID
+INNER JOIN tbl_productos as P ON P.PROD_ID = V.PROD_ID
+GROUP BY E.EMP_NOMBRE, E.EMP_APELLIDO
+ORDER BY TotalVentas DESC;
